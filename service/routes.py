@@ -71,10 +71,11 @@ def list_accounts():
     account_list = [acct.serialize() for acct in accounts]
     app.logger.info("Returning [%s] accounts", len(account_list))
     return jsonify(account_list), status.HTTP_200_OK
-    
 ######################################################################
 # READ AN ACCOUNT
 ######################################################################
+
+
 @app.route("/accounts/<int:account_id>", methods=["GET"])
 def get_account(account_id):
     """Read an Account by ID"""
@@ -87,6 +88,8 @@ def get_account(account_id):
 ######################################################################
 # UPDATE AN EXISTING ACCOUNT
 ######################################################################
+
+
 @app.route("/accounts/<int:account_id>", methods=["PUT"])
 def update_account(account_id):
     """Update an existing Account"""
@@ -103,6 +106,8 @@ def update_account(account_id):
 ######################################################################
 # DELETE AN ACCOUNT
 ######################################################################
+
+
 @app.route("/accounts/<int:account_id>", methods=["DELETE"])
 def delete_account(account_id):
     """Delete an Account by ID"""
@@ -114,6 +119,8 @@ def delete_account(account_id):
 ######################################################################
 #  U T I L I T Y   F U N C T I O N S
 ######################################################################
+
+
 def check_content_type(media_type):
     """Checks that the media type is correct"""
     content_type = request.headers.get("Content-Type")
